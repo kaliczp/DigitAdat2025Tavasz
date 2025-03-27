@@ -9,4 +9,8 @@ c[2,2] # Indexelés
 ?matrix # Kézikönyv!
 d <- matrix(data = 1:4, nrow = 2)
 d # Fent létrehozott mátrix kiíratása
-    
+d <- matrix(data = 1:4, nrow = 2, byrow = TRUE) # Soronként feltöltés
+d <- matrix(1:4, 2, byrow = TRUE) # Mint az előző, de argumentum név nélkül
+d <- matrix(1:4, 2, 2, TRUE) # ha sorba megadok mindent nem kell arg név
+e <- as.data.frame(d) # Konvertálás adattáblába (data.frame)
+as.matrix(e) # adattábla mátrixszá konvertálása
