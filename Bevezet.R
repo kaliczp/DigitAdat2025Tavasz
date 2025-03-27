@@ -31,3 +31,17 @@ a + 2 # Vektorokra is megy
 a > 10 # Objektumra is működnek
 e$V2 > 2 # Második változóm kiértékelése
 
+## Indexelés minden a második oszlopot adja vissza
+e[1:2,2]
+e$V2
+e[,2]
+e[, "V2"]
+
+## Beolvasás
+getwd() # Munka mappa kiíratása, ha nem ezt szeretném, Fájl menü -> Munkakönyvtár beállítás
+dir() # Aktuális munka mappa tartalmának ellenőrzése
+read.table("ESM_Gánt-Aggtelek_GenAlEx.csv") # Hiba
+read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";") # mező elválasztó ;, ha tabulátor, akkor "\t"
+read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";", skip = 2) # Első két sor nélkül
+ESM <- read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";", skip = 2, head = TRUE) # Fejléccel
+str(ESM)
