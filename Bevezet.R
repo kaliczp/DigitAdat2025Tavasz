@@ -43,5 +43,20 @@ dir() # Aktuális munka mappa tartalmának ellenőrzése
 read.table("ESM_Gánt-Aggtelek_GenAlEx.csv") # Hiba
 read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";") # mező elválasztó ;, ha tabulátor, akkor "\t"
 read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";", skip = 2) # Első két sor nélkül
-ESM <- read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";", skip = 2, head = TRUE) # Fejléccel
+ESM <- read.table("ESM_Gánt-Aggtelek_GenAlEx.csv", sep = ";", skip = 2, head = TRUE) # Fejléccel kódolás?
 str(ESM)
+
+## Objektum függő összefoglalás
+summary(ESM) # adattáblára
+summary(a) # vektorra
+## minimum, maximum, medián, átlag
+## 1st Qu. alsó kvartilis, aminél a 25%-a kisebb az adatoknak
+## medián 50%-a kisebb az adatoknak
+## 3st Qu. felső kvartilis 75%-a kisebb az adatoknál
+
+ESM[,3] # Harmadik oszlop
+summary(ESM[,3])
+quantile(ESM[,3]) # Tukey five numbers
+
+### Grafikus megjelenítés
+boxplot(ESM[,3]) # Tukey 5 szám grafikusan Kiugró ponttal.
