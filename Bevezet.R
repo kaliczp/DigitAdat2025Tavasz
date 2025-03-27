@@ -60,3 +60,17 @@ quantile(ESM[,3]) # Tukey five numbers
 
 ### Grafikus megjelenítés
 boxplot(ESM[,3]) # Tukey 5 szám grafikusan Kiugró ponttal.
+boxplot(ESM[,3], col = "blue") # Más szín
+boxplot(ESM[,3:42]) # Az összes numerikus változó
+boxplot(ESM[,3:42], col = c("orange", "yellow")) # Párok színezve
+boxplot(ESM[,3:42], col = c("orange", "yellow"), ylab = "Hossz") # y cimke
+names(ESM)
+boxplot(ESM[,17]) # A boxplot kiírása
+locator(1) # Leolvasás a grafikonról, csak 1 érték
+summary(ESM[,17]) # Összefoglaló a 17. oszlopról
+ESM[,17] # Csak a 17. oszlop
+sort(ESM[,17]) # Növekvő sorba rendezés
+NA # not available nem áll rendelkezésre
+ESM.mat <- ESM[,3:42] # csak a numerikus
+ESM.mat[ESM.mat == 0] <- NA # NA-val felülírva
+boxplot(ESM.mat) # Boxplot
