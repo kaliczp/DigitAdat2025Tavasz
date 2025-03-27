@@ -74,3 +74,7 @@ NA # not available nem áll rendelkezésre
 ESM.mat <- ESM[,3:42] # csak a numerikus
 ESM.mat[ESM.mat == 0] <- NA # NA-val felülírva
 boxplot(ESM.mat) # Boxplot
+
+## Export
+write.table(ESM.mat, "ESM.csv", row.names = FALSE) # Szóköz elválasztóval, sorok neve nélkül
+write.csv2(ESM.mat, "ESM.csv")
