@@ -19,3 +19,7 @@ ggplot(mpg, aes(cty, hwy)) +
 ggplot(mpg, aes(cty, hwy)) +
     geom_point() +
     geom_smooth(formula = y ~ x, method = "lm")
+## Ugyan ez a hagyományos R-es grafikával
+plot(hwy ~ cty, data = mpg.df)
+mpg.lm <- lm(hwy ~ cty, data = mpg.df)
+abline(mpg.lm)
