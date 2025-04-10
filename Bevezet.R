@@ -78,3 +78,29 @@ boxplot(ESM.mat) # Boxplot
 ## Export
 write.table(ESM.mat, "ESM.csv", row.names = FALSE) # Szóköz elválasztóval, sorok neve nélkül
 write.csv2(ESM.mat, "ESM.csv")
+
+## Kicsit bővebb adatbázis a Grafika.R-ből
+library(ggplot2)
+mpg.df <- as.data.frame(mpg)
+str(mpg.df)
+## Indexelés
+mpg.df$manufacturer
+## ha sok, ismétlődő elemmel, akkor az egyedieket kereshetem
+summary(mpg.df$manufacturer) # Ez karakter változóval nem megy.
+unique(mpg.df$manufacturer)
+## summary numerikus adatokkal
+summary(mpg.df$displ)
+## ha minőségi adataim vannak -> factor
+as.factor(mpg.df$manufacturer)
+## summary factorral
+summary(as.factor(mpg.df$manufacturer))
+## Indexelés számmal
+mpg.df[,1]
+mpg.df[,"manufacturer"]
+## Logikai kifejezéssel is megy
+mpg.df[mpg.df$manufacturer == "jeep",]
+## Számmal
+mpg.df[123:130,]
+mpg.df[c(123, 124, 125, 126, 127, 128, 129, 130),]
+
+
