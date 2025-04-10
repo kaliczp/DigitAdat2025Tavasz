@@ -23,3 +23,54 @@ ggplot(mpg, aes(cty, hwy)) +
 plot(hwy ~ cty, data = mpg.df)
 mpg.lm <- lm(hwy ~ cty, data = mpg.df)
 abline(mpg.lm)
+## Nézzük meg a regresszió ereményét
+summary(mpg.lm)
+
+### Ggplot tovább
+## Alapértelmezett simítás vizuális
+ggplot(mpg, aes(cty, hwy)) +
+    geom_point() +
+    geom_smooth()
+## Scales
+ggplot(mpg, aes(cty, hwy, colour = class)) +
+    geom_point() +
+    scale_colour_viridis_d()
+
+## Facets
+ggplot(mpg, aes(cty, hwy)) +
+    geom_point() +
+    facet_grid(year ~ drv)
+
+## Coordinates
+ggplot(mpg, aes(cty, hwy)) +
+    geom_point() +
+    coord_fixed()
+
+## Theme
+ggplot(mpg, aes(cty, hwy, colour = class)) +
+    geom_point() +
+    theme_minimal() +
+    coord_fixed()
+
+ggplot(mpg, aes(cty, hwy, colour = class)) +
+    geom_point() +
+    theme_minimal() +
+    theme(
+        legend.position = "top",
+        axis.line = element_line(linewidth = 0.75),
+        axis.line.x.bottom = element_line(colour = "blue")
+    )
+
+## Mindent bele
+ggplot(mpg, aes(cty, hwy)) +
+    geom_point(mapping = aes(colour = displ)) +
+    geom_smooth(formula = y ~ x, method = "lm") +
+    scale_colour_viridis_c() +
+    facet_grid(year ~ drv) +
+    coord_fixed() +
+    theme_minimal() +
+    theme(panel.grid.minor = element_blank())
+
+
+### És hogyan mentem el?
+help.start() # és a grDevices csomag.
