@@ -29,14 +29,25 @@ colnames(loci) <- c(PET.names[!PET.names == "NA"])
 row.names(loci) <- PET[,ncol(PET)]
 
 ## Átalakítás genind objektummá
-PET <- df2genind(loci, sep = "/")
+PET.g <- df2genind(loci, sep = "/")
 
 ## visszaalakítás
 genind2df(nancycats)
-genind2df(PET) # Valami nem jó
+genind2df(PET.g) # Valami nem jó
 
 ## A sikertelen mérések azonosítása
 loci[loci == "0/0"] <- NA
-PET <- df2genind(loci, sep = "/")
+PET.g <- df2genind(loci, sep = "/")
 
+## Főkomponens analízis
+PETrepl <- tab(PET.g, NA.method="mean")
 
+pca1 <- dudi.pca(PETrepl) # interaktív axes selection
+
+pca2 <- dudi.pca(PETrepl, scannf = FALSE, nf = 2) # nem interaktív
+pop(PET.g) <- PET[,2] # populáció jelölés
+print(summary(PET.g))
+
+PETpop <- genind2genpop(PET.g)
+
+temp <- as.integer(pop(PET.g))
