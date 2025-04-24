@@ -27,3 +27,16 @@ PET.names <- as.character(read.csv2("INPUT20250310taxgeo.csv", skip = 2, head = 
 colnames(loci) <- c(PET.names[!PET.names == "NA"])
 ## Egyedek elnevezése
 row.names(loci) <- PET[,ncol(PET)]
+
+## Átalakítás genind objektummá
+PET <- df2genind(loci, sep = "/")
+
+## visszaalakítás
+genind2df(nancycats)
+genind2df(PET) # Valami nem jó
+
+## A sikertelen mérések azonosítása
+loci[loci == "0/0"] <- NA
+PET <- df2genind(loci, sep = "/")
+
+
