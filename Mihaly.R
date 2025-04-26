@@ -18,3 +18,7 @@ summary(Osszesito[,"Poligon területe (m2)"])
 
 ## install.packages("vegan")
 library(vegan)
+
+## Work with sums
+Tax <- Osszesito[,grep("ossz",names(Osszesito))] # Csak összes adatok
+names(Tax) <- gsub(" ossz", "", names(Tax)) # Nevek csak fajkódok
