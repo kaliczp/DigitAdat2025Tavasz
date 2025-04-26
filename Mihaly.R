@@ -24,3 +24,7 @@ Tax <- Osszesito[,grep("ossz",names(Osszesito))] # Csak összes adatok
 colnames(Tax) <- gsub(" ossz", "", names(Tax)) # Nevek csak fajkódok
 row.names(Tax) <- paste(Osszesito[,2], Osszesito[,5], sep = "_")
 Tax[is.na(Tax)] <- 0 # Replace NA-s with 0
+
+## Indexek
+diversity(Tax) # Shannon (default)
+diversity(Tax, index = "simpson") # Simpson index
