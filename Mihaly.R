@@ -21,4 +21,6 @@ library(vegan)
 
 ## Work with sums
 Tax <- Osszesito[,grep("ossz",names(Osszesito))] # Csak összes adatok
-names(Tax) <- gsub(" ossz", "", names(Tax)) # Nevek csak fajkódok
+colnames(Tax) <- gsub(" ossz", "", names(Tax)) # Nevek csak fajkódok
+row.names(Tax) <- paste(Osszesito[,2], Osszesito[,5], sep = "_")
+Tax[is.na(Tax)] <- 0 # Replace NA-s with 0
