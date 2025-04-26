@@ -26,5 +26,10 @@ row.names(Tax) <- paste(Osszesito[,2], Osszesito[,5], sep = "_")
 Tax[is.na(Tax)] <- 0 # Replace NA-s with 0
 
 ## Indexek
-diversity(Tax) # Shannon (default)
-diversity(Tax, index = "simpson") # Simpson index
+shannon <- diversity(Tax) # Shannon (default)
+simpson <- diversity(Tax, index = "simpson") # Simpson index
+
+## Histograms
+par(mfrow = c(1, 2))  # 2 panels
+hist(simpson)
+hist(shannon)
