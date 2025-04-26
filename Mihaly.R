@@ -15,3 +15,6 @@ sum(Osszesito[,3]) # A harmadik oszlop
 ## A területek öszegzése
 quantile(Osszesito[,"Poligon területe (m2)"])
 summary(Osszesito[,"Poligon területe (m2)"])
+
+## install.packages("vegan")
+library(vegan)
