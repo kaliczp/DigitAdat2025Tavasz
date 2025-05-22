@@ -35,6 +35,10 @@ library("pegas")
 dapc.Pet <- dapc(Pet, var.contrib = TRUE, scale = FALSE, n.pca = 30, n.da = nPop(Pet) - 1)
 scatter(dapc.Pet, cell = 0, pch = 18:23, cstar = 0, mstree = TRUE, lwd = 2, lty = 2)
 
+jpeg()
+scatter(dapc.Pet, cell = 0, pch = 18:23, cstar = 0, mstree = TRUE, lwd = 2, lty = 2)
+dev.off()
+
 ## AMOVA
 table(strata(Pet, ~Pop))  # Populations
 
