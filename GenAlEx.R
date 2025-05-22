@@ -2,7 +2,8 @@
 ## install.packages("poppr")
 library(poppr) # load package
 Pet <- read.genalex("Javitott.csv", sep = ";") # import
-
+str(Pet) # Structure of the object
+class(Pet) # Information from object
 
 package?poppr # Read The Fine Manual
 
