@@ -28,6 +28,11 @@ info_table(miss005, plot = TRUE)
 miss <- missingno(Pet, "loci", cutoff = 0) # 0%
 info_table(miss, plot = TRUE)
 
+library("pegas")
+(Pet.hwe.full <- hw.test(Pet, B = 1000))
+
 ## DAPC
 dapc.Pet <- dapc(Pet, var.contrib = TRUE, scale = FALSE, n.pca = 30, n.da = nPop(Pet) - 1)
 scatter(dapc.Pet, cell = 0, pch = 18:23, cstar = 0, mstree = TRUE, lwd = 2, lty = 2)
+
+## AMOVA
