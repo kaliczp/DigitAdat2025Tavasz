@@ -36,3 +36,22 @@ dapc.Pet <- dapc(Pet, var.contrib = TRUE, scale = FALSE, n.pca = 30, n.da = nPop
 scatter(dapc.Pet, cell = 0, pch = 18:23, cstar = 0, mstree = TRUE, lwd = 2, lty = 2)
 
 ## AMOVA
+table(strata(Pet, ~Pop))  # Populations
+
+## Re-generate with strata based on Part II/Data preparation
+Petsp <- read.genalex("SubPop.csv", sep = ";") # import
+splitStrata(Petsp) <- ~Pop/Subpop
+
+table(strata(Petsp, ~Pop/Subpop, combine = FALSE))  # Subpopulations
+Petamova <- poppr.amova(Petsp, ~Pop/Subpop)
+Petamovacc <- poppr.amova(Petsp, ~Pop/Subpop, clonecorrect = TRUE)
+
+Petamova
+Petamovacc
+
+Petamova$componentsofcovariance
+
+Petsignif   <- randtest(Petamova, nrepet = 999)
+Petccsignif <- randtest(Petamovacc, nrepet = 999)
+
+plot(Petsignif)
