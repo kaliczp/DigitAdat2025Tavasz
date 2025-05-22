@@ -8,10 +8,14 @@ class(Pet) # Information from object
 package?poppr # Read The Fine Manual
 
 gac <- genotype_curve(Pet) # Genotype curve
+gac <- genotype_curve(Pet, sample = 1000) # Sample number increased
 Petlt <- locus_table(Pet) # Locus table
 Petlt # Check it!
 info_table(Pet, type = "missing", plot = TRUE) # Missing
 tail(genind2df(Pet, sep = "/")) # look at data as data.frame
+
+Pet.ploidy <- info_table(Pet, type = "ploidy", plot = TRUE, low = "black", high = "orange")
+write.table(Pet.ploidy, "Ploidy.csv", sep = ";") # Export
 
 poppr(Pet) # Diversity table
 
