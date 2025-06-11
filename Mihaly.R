@@ -40,5 +40,5 @@ rarecurve(Tax)
 
 ## Ajánlott csomagok
 library(MASS)
-## install.package("casualreg")
+## install.packages("casualreg")
 library(casualreg)
