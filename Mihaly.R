@@ -37,3 +37,8 @@ hist(shannon)
 ## rarecurve
 row.names(Tax) <- paste(Osszesito[,2])
 rarecurve(Tax)
+
+## Ajánlott csomagok
+library(MASS)
+## install.package("casualreg")
+library(casualreg)
