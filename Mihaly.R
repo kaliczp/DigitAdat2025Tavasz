@@ -45,4 +45,8 @@ library(casualreg)
 
 ## Faktor készítés
 TypSh <- data.frame(Type = factor(Osszesito[,4]), Shannon = shannon) # adattábla az indexszel
-boxplot(Shannon ~ Type, data = TypSh, xlab = "")
+summary(TypSh) # Összegzés
+boxplot(Shannon ~ Type, data = TypSh, xlab = "") # Vizuális elemzés a kategóriákra
+
+summary(TypSh[TypSh$Type == "Cserjés",]) # Csak a Cserjés leíró statisztikája
+TypSh[TypSh$Type == "Tisztás-erdő szegély",] # Adatokat megnézzük
