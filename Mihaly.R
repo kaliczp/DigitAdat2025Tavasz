@@ -42,3 +42,7 @@ rarecurve(Tax)
 library(MASS)
 ## install.packages("casualreg")
 library(casualreg)
+
+## Faktor készítés
+TypSh <- data.frame(Type = factor(Osszesito[,4]), Shannon = shannon) # adattábla az indexszel
+boxplot(Shannon ~ Type, data = TypSh, xlab = "")
