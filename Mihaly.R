@@ -50,3 +50,10 @@ boxplot(Shannon ~ Type, data = TypSh, xlab = "") # Vizuális elemzés a kategór
 
 summary(TypSh[TypSh$Type == "Cserjés",]) # Csak a Cserjés leíró statisztikája
 TypSh[TypSh$Type == "Tisztás-erdő szegély",] # Adatokat megnézzük
+
+## Dendrogram
+Taxdist <- dist(Tax)
+
+Taxhc <- hclust(Taxdist)
+Taxcdhc <- as.dendrogram(Taxhc)
+plot(Taxcdhc)
