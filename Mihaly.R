@@ -52,8 +52,14 @@ summary(TypSh[TypSh$Type == "Cserjés",]) # Csak a Cserjés leíró statisztiká
 TypSh[TypSh$Type == "Tisztás-erdő szegély",] # Adatokat megnézzük
 
 ## Dendrogram
-Taxdist <- dist(Tax)
+Taxdist <- dist(Tax) # Eucledian dist
 
-Taxhc <- hclust(Taxdist)
-Taxcdhc <- as.dendrogram(Taxhc)
+Taxhc <- hclust(Taxdist) # Clustering
+Taxcdhc <- as.dendrogram(Taxhc) # Produce dendrogram
 plot(Taxcdhc)
+
+## Skip some row
+Taxdist1 <- dist(Tax[-c(11,13,17,20),])
+Taxhc1 <- hclust(Taxdist1)
+Taxcdhc1 <- as.dendrogram(Taxhc1)
+plot(Taxcdhc1)
