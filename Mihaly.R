@@ -1,10 +1,10 @@
 ## install.packages("readxl")
 library(readxl)
 ## Beolvasás adattáblába (data.frame)
-Osszesito <- as.data.frame(read_excel("KosztaM_osszesito_tablat_20221102_javitott (1).xlsx"),
+Osszesito <- as.data.frame(read_excel("KosztaM_osszesito_tablat_20221102_javitott.xlsx"),
                            n_max = 25)
 ## Javított beolvasás
-Osszesito <- as.data.frame(read_excel("KosztaM_osszesito_tablat_20221102_javitott (1).xlsx",
+Osszesito <- as.data.frame(read_excel("KosztaM_osszesito_tablat_20221102_javitott.xlsx",
                                       range = "A1:IX25"))
 ## Megvan az objektum?
 ls()
