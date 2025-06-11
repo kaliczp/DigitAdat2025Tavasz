@@ -33,3 +33,7 @@ simpson <- diversity(Tax, index = "simpson") # Simpson index
 par(mfrow = c(1, 2))  # 2 panels
 hist(simpson)
 hist(shannon)
+
+## rarecurve
+row.names(Tax) <- paste(Osszesito[,2])
+rarecurve(Tax)
